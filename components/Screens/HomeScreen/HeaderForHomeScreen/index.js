@@ -1,15 +1,26 @@
-import { Image, View, Text } from "react-native";
+import React, { useState } from "react";
+import { View, Text, TouchableOpacity, ScrollView, Image } from "react-native";
 import styles from "./styles";
 
 export default function HeaderForHomeScreen() {
-    // Now the ui of the component is defined that it should be horizontal and it should have a logo and some texts recomendations.
+    const [selectedCategory, setSelectedCategory] = useState("All");
+
+    const categories = ["All", "Music", "Podcasts", "Audiobooks"];
+
     return (
         <View style={styles.container}>
-            <Image style={styles.logo}></Image>
-            <Text style={styles.text}>All</Text>
-            <Text style={styles.text}>Music</Text>
-            <Text style={styles.text}>Podcasts</Text>
-            <Text style={styles.text}>Audiobooks</Text>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false} >
+                {/* Logo button */}
+                <Image  style={styles.logo}source={require('../../../../assets/logo.jpg')}/>
+                {categories.map((category, index) => (
+                    <TouchableOpacity key={category} onPress={() => setSelectedCategory(category)}>
+                        <Text style={[
+                                styles.text,
+                                selectedCategory === category && styles.selectedCategoryText
+                            ]}>{category}</Text>
+                    </TouchableOpacity>
+                ))}
+            </ScrollView>
         </View>
     );
 }

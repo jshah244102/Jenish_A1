@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-// Create a new stylesheet for horiontal view for header in homw screen where it contains logo and some recomedation texts
+
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
         borderRadius: 16,
         borderColor: '#000',
         borderWidth: 1,
+        marginRight: 8,
     },
     /// Text should have boreder and container show in ui.
     text: {
@@ -26,13 +27,14 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         padding: 5,
         paddingHorizontal: 10,
-        borderRadius: 5,
-        backgroundColor: '#fff',
-        elevation: 5,
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.2,
-        shadowRadius: 4,
+        borderRadius: 16,
+        marginRight: 8,
+    }, 
+    selectedCategoryText: {
+        color: "#fff",
+        fontWeight: "bold",
+        backgroundColor: "#1DB954",
+        borderColor: "#1DB954",
     }
 })
 
